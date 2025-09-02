@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Briony Rose Consulting</title>
+    <link rel="icon" type="image/webp" href="icon.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --white1: #fff;
+        --green1: #d5dec8;
+        --green3: #b8c2ab;
+        --green8: #6c757d;
+        --black1: #464037;
+        --black2: #333;
+
+        --pad: min(5vw, 40px);
+        --anim1: 800ms;
+        --anim2delay: calc(var(--anim1) * 2);
+        --anim2: 800ms;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Open Sans', sans-serif;
+
+        margin: 0;
+
+        background: var(--white);
+        color: var(--black1);
+
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+
+        overflow: hidden;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      figure {
+        margin: var(--pad);
+        padding: var(--pad);
+
+        width: calc(100% - var(--pad) * 2);
+        height: calc(100% - var(--pad) * 2);
+
+        background: var(--green1);
+        border-radius: 20px;
+        box-shadow: 0px 1px 96px -31px rgba(255, 255, 255, 1) inset;
+
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+
+        animation:
+          var(--anim1) figure-animation-1 forwards,
+          var(--anim2) figure-animation-2 var(--anim2delay) forwards;
+
+        overflow: hidden;
+      }
+
+      @keyframes figure-animation-1 {
+        from {
+          translate: 0 100vh;
+          border-radius: 100%;
+        }
+        to {
+          border-radius: 40px;
+        }
+      }
+
+      @keyframes figure-animation-2 {
+        from {
+        }
+        to {
+          border-radius: 20px;
+          width: 50%;
+        }
+      }
+      @media (max-width: 600px) {
+        @keyframes figure-animation-2 {
+          from {
+          }
+          to {
+            height: calc(100vh - var(--pad) - 3 * 30px - 4 * var(--pad));
+          }
+        }
+      }
+
+      figure > img {
+        margin: auto;
+        width: min(60vh, 60vw, 300px);
+      }
+
+      @keyframes img-animation-1 {
+        from {
+          translate: 0 -100vh;
+          scale: 200%;
+        }
+        to {
+          scale: 130%;
+        }
+      }
+
+      @keyframes img-animation-2 {
+        from {
+          scale: 130%;
+        }
+        to {
+          scale: 100%;
+        }
+      }
+
+      address {
+        position: absolute;
+
+        top: calc(100vh * 0.6);
+        opacity: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--pad) * 0.5);
+      }
+      @media (max-width: 600px) {
+        address {
+          top: unset;
+          bottom: calc(var(--pad));
+          gap: calc(var(--pad));
+        }
+      }
+
+      @property --ap1 {
+        syntax: '<color>';
+        initial-value: rgba(213, 222, 200, 1);
+        inherits: false;
+      }
+
+      @property --ap2 {
+        syntax: '<percentage>';
+        initial-value: 100%;
+        inherits: false;
+      }
+
+      a {
+        margin: 0;
+        padding-left: calc(50% + var(--pad) * 2);
+        height: 60px;
+        width: 100vw;
+
+        color: var(--black1);
+        font-size: 20px;
+        font-weight: 300;
+        font-style: normal;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: clipped;
+
+        background: linear-gradient(
+          45deg,
+          rgba(184, 194, 171, 1) 0%,
+          rgba(189, 204, 171, 1) 60%,
+          rgba(213, 222, 200, 1) var(--ap2),
+          var(--ap1) 100%
+        );
+
+        transition: --ap1 200ms ease;
+        transition: --ap2 200ms ease;
+      }
+      a[href*='linkedin']:hover {
+        --ap1: #c7dddb;
+        --ap2: 67.5%;
+      }
+      a[href*='61']:hover {
+        --ap1: #b2dbb3;
+        --ap2: 70%;
+      }
+      a[href*='mailto']:hover {
+        --ap1: #d0c7dd;
+        --ap2: 80%;
+      }
+      @media (max-width: 600px) {
+        a {
+          padding-left: calc(var(--pad));
+          background: var(--green1);
+        }
+      }
+
+      address {
+        animation: var(--anim2) address-animation var(--anim2delay) forwards;
+      }
+
+      @keyframes address-animation {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <address>
+      <a href="tel://+61404614965">0404 614 965</a>
+      <a href="mailto://info@brionyroseconsulting.au">info@brionyroseconsulting.au</a>
+      <a href="https://www.linkedin.com/in/briony-bray-3128881a3/">LinkedIn</a>
+    </address>
+    <figure>
+      <img src="icon.webp" alt="Briony Rose Consulting Logo" />
+    </figure>
+  </body>
+</html>
