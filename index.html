@@ -124,7 +124,7 @@
       address {
         position: absolute;
 
-        top: calc(100vh * 0.6);
+        bottom: calc(max(var(--pad) * 2));
         opacity: 0;
 
         display: flex;
@@ -141,7 +141,7 @@
 
       @property --ap1 {
         syntax: '<color>';
-        initial-value: rgba(213, 222, 200, 1);
+        initial-value: rgba(189, 204, 171, 1);
         inherits: false;
       }
 
@@ -170,25 +170,30 @@
         background: linear-gradient(
           45deg,
           rgba(184, 194, 171, 1) 0%,
-          rgba(189, 204, 171, 1) 60%,
           rgba(213, 222, 200, 1) var(--ap2),
-          var(--ap1) 100%
+          rgba(189, 204, 171, 1) var(--ap2),
+          rgba(213, 222, 200, 1) 100%
         );
 
-        transition: --ap1 200ms ease;
         transition: --ap2 200ms ease;
       }
-      a[href*='linkedin']:hover {
-        --ap1: #c7dddb;
-        --ap2: 67.5%;
-      }
-      a[href*='61']:hover {
-        --ap1: #b2dbb3;
+      a[href*='61'] {
         --ap2: 70%;
       }
-      a[href*='mailto']:hover {
-        --ap1: #d0c7dd;
+      a[href*='mailto'] {
         --ap2: 80%;
+      }
+      a[href*='linkedin'] {
+        --ap2: 65%;
+      }
+      a[href*='61']:hover {
+        --ap2: 75%;
+      }
+      a[href*='mailto']:hover {
+        --ap2: 85%;
+      }
+      a[href*='linkedin']:hover {
+        --ap2: 70%;
       }
       @media (max-width: 600px) {
         a {
