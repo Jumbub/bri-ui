@@ -20,6 +20,11 @@
         font-style: normal;
       }
 
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
       body {
         font-family: 'Open Sans';
         color: #464037;
@@ -99,6 +104,9 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        width: 100%;
+        position: relative;
       }
 
       section#about > h1 {
@@ -113,8 +121,8 @@
       section#about > img {
         position: absolute;
         z-index: -1;
-        top: 300px;
-        left: calc(50% - 20px);
+        top: -10px;
+        left: 41%;
 
         width: 250px;
         border: 15px solid #dae3cd; /* width style color */
@@ -148,7 +156,7 @@
 
       article#summary > h3 {
         margin: auto;
-        max-width: 380px;
+        max-width: 360px;
       }
 
       nav {
@@ -163,8 +171,8 @@
       }
 
       nav > a {
-        width: 100px;
-        height: 100px;
+        width: calc(min(25vw, 120px));
+        height: calc(min(25vw, 120px));
         border-radius: 50%;
         background: #b6b3d5;
 
