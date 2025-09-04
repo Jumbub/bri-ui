@@ -1,0 +1,13 @@
+/* :root { */
+/*   --green1: #dae3cd; */
+/*   --green2: #bdcbaa; */
+/* } */
+
+body {
+  --green1: #dae3cd;
+  --green2: #bdcbaa;
+}
+
+header {
+  background: var(--green1);
+}

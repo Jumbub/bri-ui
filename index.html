@@ -7,224 +7,243 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet" />
     <style>
-      :root {
-        --white1: #fff;
-        --green1: #d5dec8;
-        --green3: #b8c2ab;
-        --green8: #6c757d;
-        --black1: #464037;
-        --black2: #333;
+      @import 'normalize.css';
 
-        --pad: min(5vw, 40px);
-        --anim1: 800ms;
-        --anim2delay: calc(var(--anim1) * 2);
-        --anim2: 800ms;
-      }
-
-      *,
-      *::before,
-      *::after {
+      * {
         box-sizing: border-box;
       }
 
+      @font-face {
+        font-family: 'Avallon';
+        src: url('avallon.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+
       body {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
+        color: #464037;
+      }
 
+      header {
+        background: #dae3cd;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header > img {
+        width: min(60%, 250px);
+      }
+
+      h1,
+      h2 {
         margin: 0;
-
-        background: var(--white);
-        color: var(--black1);
-
-        width: 100vw;
-        height: 100vh;
-        max-width: 100vw;
-        max-height: 100vh;
-
-        overflow: hidden;
+        font-family: 'Avallon';
+        font-weight: 300;
       }
 
-      body::-webkit-scrollbar {
-        display: none;
+      h2 {
+        font-size: 18px;
       }
 
-      figure {
-        margin: var(--pad);
-        padding: var(--pad);
+      h3 {
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: 1.11px;
+        font-size: 9px;
+        text-transform: uppercase;
+        text-align: center;
+      }
 
-        width: calc(100% - var(--pad) * 2);
-        height: calc(100% - var(--pad) * 2);
+      p {
+        margin: 0;
+      }
 
-        background: var(--green1);
+      ul {
+        margin: 0;
+      }
+
+      div {
+        background: #bdcbaa;
         border-radius: 20px;
-        box-shadow: 0px 1px 96px -31px rgba(255, 255, 255, 1) inset;
+        padding: 13px;
+        width: 100%;
 
         display: flex;
-        align-content: center;
-        flex-direction: column;
-
-        animation:
-          var(--anim1) figure-animation-1 forwards,
-          var(--anim2) figure-animation-2 var(--anim2delay) forwards;
-
-        overflow: hidden;
-      }
-
-      @keyframes figure-animation-1 {
-        from {
-          translate: 0 100vh;
-          border-radius: 100%;
-        }
-        to {
-          border-radius: 40px;
-        }
-      }
-
-      @keyframes figure-animation-2 {
-        from {
-        }
-        to {
-          border-radius: 20px;
-          width: 50%;
-        }
-      }
-      @media (max-width: 600px) {
-        @keyframes figure-animation-2 {
-          from {
-          }
-          to {
-            height: calc(100vh - var(--pad) - 3 * 30px - 4 * var(--pad));
-          }
-        }
-      }
-
-      figure > img {
-        margin: auto;
-        width: min(60vh, 60vw, 300px);
-      }
-
-      @keyframes img-animation-1 {
-        from {
-          translate: 0 -100vh;
-          scale: 200%;
-        }
-        to {
-          scale: 130%;
-        }
-      }
-
-      @keyframes img-animation-2 {
-        from {
-          scale: 130%;
-        }
-        to {
-          scale: 100%;
-        }
-      }
-
-      address {
-        position: absolute;
-
-        bottom: calc(max(var(--pad) * 2));
-        opacity: 0;
-
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--pad) * 0.5);
-      }
-      @media (max-width: 600px) {
-        address {
-          top: unset;
-          bottom: calc(var(--pad));
-          gap: calc(var(--pad));
-        }
-      }
-
-      @property --ap1 {
-        syntax: '<color>';
-        initial-value: rgba(189, 204, 171, 1);
-        inherits: false;
-      }
-
-      @property --ap2 {
-        syntax: '<percentage>';
-        initial-value: 100%;
-        inherits: false;
+        flex-direction: row;
+        align-items: center;
       }
 
       a {
-        margin: 0;
-        padding-left: calc(50% + var(--pad) * 2);
-        height: 60px;
-        width: 100vw;
+        text-align: center;
+        text-decoration: none;
+        color: #464037;
+      }
 
-        color: var(--black1);
-        font-size: 20px;
-        font-weight: 300;
-        font-style: normal;
+      header > h3 {
+        margin-bottom: 15px;
+      }
 
+      section#about {
+        margin-top: 40px;
         display: flex;
         flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      section#about > h1 {
+        margin-left: 20px;
+      }
+
+      section#about > div {
+        font-size: 10px;
+        width: 60%;
+      }
+
+      section#about > img {
+        position: absolute;
+        z-index: -1;
+        top: 33%;
+        left: 45%;
+
+        width: 250px;
+        border: 15px solid #dae3cd; /* width style color */
+        border-radius: 50%;
+      }
+
+      section#services {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      section#services > h1 {
+        margin-left: 20px;
+      }
+
+      section#services > div > h2 {
+        min-width: 35%;
+        max-width: 35%;
+      }
+
+      section#services > div > ul {
+        font-size: 10px;
+      }
+
+      section#summary {
+        padding: 20px;
+        background: #dae1d1;
+      }
+
+      nav {
+        padding: 20px;
+
+        border-top: 1px solid #fff5; /* width style color */
+        background: #dae3cd;
+
+        display: flex;
         justify-content: center;
-        overflow: clipped;
-
-        background: linear-gradient(
-          45deg,
-          rgba(184, 194, 171, 1) 0%,
-          rgba(213, 222, 200, 1) var(--ap2),
-          rgba(189, 204, 171, 1) var(--ap2),
-          rgba(213, 222, 200, 1) 100%
-        );
-
-        transition: --ap2 200ms ease;
-      }
-      a[href*='61'] {
-        --ap2: 70%;
-      }
-      a[href*='mailto'] {
-        --ap2: 80%;
-      }
-      a[href*='linkedin'] {
-        --ap2: 65%;
-      }
-      a[href*='61']:hover {
-        --ap2: 75%;
-      }
-      a[href*='mailto']:hover {
-        --ap2: 85%;
-      }
-      a[href*='linkedin']:hover {
-        --ap2: 70%;
-      }
-      @media (max-width: 600px) {
-        a {
-          padding-left: calc(var(--pad));
-          background: var(--green1);
-        }
+        gap: 10px;
       }
 
-      address {
-        animation: var(--anim2) address-animation var(--anim2delay) forwards;
+      nav > a {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #b6b3d5;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      @keyframes address-animation {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+      footer {
+        font-weight: 600;
+        padding: 20px;
+        font-size: 9px;
+        text-align: center;
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <address>
-      <a href="tel://+61404614965">0404 614 965</a>
-      <a href="mailto://info@brionyroseconsulting.au">info@brionyroseconsulting.au</a>
-      <a href="https://www.linkedin.com/in/briony-bray-3128881a3/">LinkedIn</a>
-    </address>
-    <figure>
+    <header>
       <img src="icon.webp" alt="Briony Rose Consulting Logo" />
-    </figure>
+      <h3>Arts and events management | Creative problem-solving</h3>
+    </header>
+    <section id="about">
+      <h1>About me:</h1>
+      <div>
+        <p>
+          With a vast array of experiences in the creative industries, I am able to provide a passionate approach to
+          problem solving and achieving goals within set timeframes. I look forward to working with you on your next
+          project!
+        </p>
+      </div>
+      <img src="bri.jpg" />
+    </section>
+    <section id="services">
+      <h1>My Services</h1>
+      <div>
+        <h2>Public Art Consulting</h2>
+        <ul>
+          <li>Project Management</li>
+          <li>Artist Liaison</li>
+          <li>Working with all stakeholders</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Art Valuations</h2>
+        <ul>
+          <li>Valuing individual artworks or collections</li>
+          <li>Including Public Art collections</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Event Coordination</h2>
+        <ul>
+          <li>From planning to delivery</li>
+          <li>Working to a budget</li>
+          <li>Workshops, exhibitions, galas</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Curatorial Services</h2>
+        <ul>
+          <li>Selecting and curating artwork</li>
+          <li>Art prizes, community exhibitions, interior design</li>
+        </ul>
+      </div>
+    </section>
+    <section id="summary">
+      <h3>
+        Creative Problem Solving | Strategic Planning and Implementation | Change Making | Engagement and Facilitation |
+        Community Consultation | Project Managment | Partnerships
+      </h3>
+    </section>
+    <nav>
+      <a href="https://www.instagram.com/brionybuggs/"
+        ><h2>Previous<br />Work</h2></a
+      >
+      <a href="https://www.linkedin.com/in/briony-bray-3128881a3"
+        ><h2>Find me on<br />LinkedIn</h2></a
+      >
+      <a href="https://docs.google.com/document/export?format=pdf&id=1-_XDx5oeUpPeWGOmBFAoJoliR_lniNm5ePSFBwElWcE"
+        ><h2>Current<br />Resume</h2></a
+      >
+    </nav>
+    <footer>
+      <span>
+        <a href="mailto://info@brionyroseconsulting.au">info@brionyroseconsulting.au</a>
+        |
+        <a href="tel://+61404614965">0404 614 965</a>
+        |
+        <a href="https://brionyroseconsulting.au">brionyroseconsulting.au</a>
+      </span>
+    </footer>
   </body>
 </html>
