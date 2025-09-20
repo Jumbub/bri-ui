@@ -103,7 +103,7 @@
 
         justify-content: center;
         gap: 5vw;
-        padding: 10vw 0;
+        padding: 10vw 5vw;
       }
 
       img {
@@ -117,6 +117,10 @@
       }
 
       h3 {
+        margin-top: 1rem;
+      }
+
+      h4 {
         margin-top: 1rem;
         margin-left: 2rem;
       }
@@ -155,11 +159,11 @@
         margin-bottom: -40px;
       }
 
-      #capabilities {
+      #services {
         flex-direction: row;
       }
 
-      #capabilities-img {
+      #services-img {
         margin-left: -200px;
 
         --size: 280px;
@@ -168,7 +172,19 @@
       }
 
       #contact {
-        background: #bdcbaa;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+
+      .contact-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background: #fff;
+        width: 70vw;
       }
 
       .contact-logo {
@@ -176,6 +192,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 20px;
+
+        background: #dae3cd;
+        height: 100vh;
+        width: 30vw;
+      }
+
+      .contact-logo-img {
+        --size: 200px;
+        width: var(--size);
+        height: var(--size);
       }
 
       .location {
@@ -191,32 +218,21 @@
         height: var(--size);
       }
 
-      #contact-box {
-        position: relative;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        background: #fff;
-        border-radius: 8px;
-        width: min(1000px, 90vw);
-        padding: 5vw 0;
+      .location-text {
+        font-size: 0.9rem;
       }
 
       address {
         margin-bottom: 20px;
       }
-
       address > a {
         line-height: 1.5;
-        font-size: 1.35rem;
+        font-size: 1.2rem;
         color: #5345d9;
         font-style: normal;
       }
       address > a[href*='tel'] {
-        font-size: 3rem;
+        font-size: 2.7rem;
       }
 
       #contact-links > a {
@@ -226,6 +242,24 @@
         width: 100%;
         height: 20px;
         backround: #b6b3d5;
+      }
+
+      @media (max-width: 1250px) {
+        #services-img {
+          margin-left: 0;
+        }
+        #contact {
+          flex-direction: column;
+          width: 100%;
+        }
+        .contact-logo {
+          width: 100%;
+          height: 40vh;
+        }
+        .contact-box {
+          width: 100%;
+          height: 60vh;
+        }
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -240,7 +274,7 @@
     </header>
     <nav class="links">
       <a href="#about">About Me</a>
-      <a href="#capabilities">My Capabilities</a>
+      <a href="#services">My Services</a>
       <a href="#contact">Contact Me</a>
     </nav>
     <section id="about">
@@ -261,47 +295,48 @@
     </section>
     <hr />
     <hr />
-    <section id="capabilities">
+    <section id="services">
       <div>
-        <h2>My Capabilities</h2>
-        <h3>Event Coordination</h3>
+        <h2>My Services</h2>
+        <h4>Event Coordination</h4>
         <ul>
           <li>Project Management for small to large scale public art projects</li>
           <li>Artist liaison throughout a project</li>
           <li>Working with all stakeholders from planning to delivery</li>
         </ul>
-        <h3>Public Art Consulting</h3>
+        <h4>Public Art Consulting</h4>
         <ul>
           <li>Delivering a diverse range of events within the community</li>
           <li>Working within a budget, and to specific project timelines</li>
           <li>Inclusive of, but not limited to, workshops, exhibitions, galas</li>
         </ul>
-        <h3>Art Valuations</h3>
+        <h4>Art Valuations</h4>
         <ul>
           <li>Valuing individual artworks or collections</li>
           <li>Inclusive of art valuations for Public Art collections in LGAs</li>
         </ul>
-        <h3>Curatorial Services</h3>
+        <h4>Curatorial Services</h4>
         <ul>
           <li>Selecting and curating artwork for independent and public art collections</li>
           <li>Art prizes, community exhibitions, interior design, and collections/acquisitions management</li>
         </ul>
       </div>
       <img
-        id="capabilities-img"
+        id="services-img"
         alt="Creative Problem Solving; Strategic Planning and Implementation; Change Making; Engagement and Facilitation; Community Consultation; Project Managment; Partnerships"
         src="capabilities.webp"
       />
     </section>
-    <section id="contact">
+    <hr />
+    <footer id="contact">
       <div class="contact-logo">
         <img class="contact-logo-img" src="icon.webp" />
         <div class="location">
           <img class="location-pin" alt="Pin Icon" src="pin.webp" />
-          <span>Based in <strong>Geraldton, Western Australia</strong></span>
+          <span class="location-text">Based in <strong>Geraldton, Western Australia</strong></span>
         </div>
       </div>
-      <div id="contact-box">
+      <div class="contact-box">
         <address>
           <a href="mailto://info@brionyroseconsulting.au">info@brionyroseconsulting.au</a>
           <br />
@@ -316,6 +351,6 @@
           >
         </div>
       </div>
-    </section>
+    </footer>
   </body>
 </html>
