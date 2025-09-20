@@ -22,77 +22,57 @@
       }
 
       :root {
-        --headerSize: 80vh;
-
-        --buttonsHeight: calc(100vh - var(--headerSize));
+        --buttonsHeight: max(200px, 20vh);
         --buttonHeight: calc(var(--buttonsHeight) / 4);
         --buttonSpacing: calc(var(--buttonsHeight) / 12);
+
+        --headerSize: max(100vh - var(--buttonsHeight));
       }
 
       html,
       body {
         scroll-behavior: smooth;
-        overflow-x: hidden;
         font-family: 'Open Sans';
         color: #464037;
         width: 100vw;
       }
 
       header {
-        width: 100%;
-        height: var(--headerSize);
-        background: #dae3cd;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        width: 100%;
+        height: var(--headerSize);
+        background: #dae3cd;
       }
 
       header > img {
-        width: min(30vw, 30vh);
+        --size: min(calc(var(--headerSize) / 1.75), 80vw);
+        width: var(--size);
+        height: var(--size);
       }
 
-      h1 {
-        text-transform: uppercase;
-        margin-top: 0;
-        margin-bottom: 2rem;
-      }
-
-      h2 {
-        font-size: 1rem;
-        font-weight: 700;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        margin-left: 2rem;
-      }
-
-      ul {
-        margin-left: 2.5rem;
-        text-wrap: nowrap;
-      }
-
-      h3 {
+      header > h3 {
         font-weight: 350;
         font-size: 0.9rem;
         letter-spacing: 1.11px;
-        line-height: 1.3;
+        line-height: 1.4;
         text-transform: uppercase;
         text-align: center;
       }
 
-      p {
-        margin-left: 1rem;
-      }
-
-      nav {
-        margin-top: var(--buttonSpacing);
+      .links {
         display: flex;
         flex-direction: column;
         gap: var(--buttonSpacing);
+
+        width: 100%;
+        margin-top: var(--buttonSpacing);
       }
 
-      nav > a {
+      .links > a {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -111,214 +91,141 @@
         text-align: center;
       }
 
-      nav > a:nth-child(2) {
+      .links > a:nth-child(2) {
         background: #dad8ee;
       }
 
       section {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: row-reverse;
         align-items: center;
+        flex-wrap: wrap;
 
-        margin: 15vw;
-        gap: 10vw;
-      }
-
-      #capabilities {
-        position: relative;
+        justify-content: center;
         gap: 5vw;
+        padding: 10vw 0;
       }
 
-      #capabilities > img {
-        position: absolute;
-        margin-left: 700px;
-        width: 20vw;
-        aspect-ratio: 1;
+      img {
+        --size: 300px;
+        width: var(--size);
+        height: var(--size);
       }
 
-      #capabilities > div {
-        margin-right: 100px;
+      h2 {
+        text-transform: uppercase;
       }
 
-      #about > div > p {
-        margin-bottom: 1rem;
+      h3 {
+        margin-top: 1rem;
+        margin-left: 2rem;
       }
 
-      #about > img {
-        width: 20vw;
-        aspect-ratio: 1;
+      p {
+        margin-top: 1rem;
+        margin-left: 2rem;
       }
 
-      .dividers {
-        margin-top: calc(var(--buttonSpacing) * 0.6);
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--buttonSpacing) * 0.6);
+      ul {
+        margin-top: 0.2rem;
+        margin-left: 2rem;
       }
 
-      .dividers > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      li {
+        line-height: 1.3;
+        margin-left: 2rem;
+      }
 
-        width: 100%;
-        height: calc(var(--buttonHeight) * 0.6);
-        text-decoration: none;
+      hr {
+        height: var(--buttonHeight);
+        margin-top: var(--buttonSpacing);
+        border: 0;
+        background: #dae3cd;
+      }
+
+      hr:nth-child(odd) {
         background: #bdcbaa;
       }
 
-      .dividers > .dividers-odd {
-        background: #dae3cd;
+      #about-text {
+        width: 600px;
       }
 
-      footer {
-        width: 100%;
-        height: 100vh;
-        background: #dae3cd;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      #about-img {
+        margin-bottom: -40px;
       }
 
-      .locations {
-        display: flex;
+      #capabilities {
         flex-direction: row;
+      }
+
+      #capabilities-img {
+        margin-left: -200px;
+
+        --size: 280px;
+        width: var(--size);
+        height: var(--size);
+      }
+
+      #contact {
+        background: #bdcbaa;
+      }
+
+      .contact-logo {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        margin-top: 20px;
-        gap: 0.5rem;
-      }
-      .locations > img {
-        width: 2rem;
-      }
-      .locations > span {
-        font-weight: 350;
-        font-size: 0.8rem;
-        letter-spacing: 1.11px;
-        line-height: 1.3;
-        text-transform: uppercase;
-        text-align: center;
       }
 
-      .contacts {
+      .location {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .location-pin {
+        --size: 35px;
+        width: var(--size);
+        height: var(--size);
+      }
+
+      #contact-box {
+        position: relative;
+
+        display: flex;
         flex-direction: column;
-        gap: 40px;
+        justify-content: center;
+        align-items: center;
 
         background: #fff;
-        border-radius: 20px;
-
-        width: 80vw;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        border-radius: 8px;
+        width: min(1000px, 90vw);
+        padding: 5vw 0;
       }
 
       address {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        margin-top: 30px;
-        margin-bottom: 15px;
-        gap: 0.5rem;
+        margin-bottom: 20px;
       }
 
       address > a {
+        line-height: 1.5;
         font-size: 1.35rem;
         color: #5345d9;
         font-style: normal;
       }
-      address > span {
-        font-size: 1.7rem;
-        font-weight: 300;
-        text-decoration: none;
-        font-style: normal;
-        margin-bottom: 0.5rem;
-      }
       address > a[href*='tel'] {
         font-size: 3rem;
-        font-style: normal;
-        margin-bottom: 1rem;
       }
 
-      .main-contacts {
+      #contact-links > a {
         display: flex;
-        gap: 80px;
-      }
-
-      .main-contacts > img {
-        width: 150px;
-      }
-
-      .circles {
-        display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        gap: 1rem;
 
         width: 100%;
-      }
-
-      .circle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        width: 100%;
-        background: #b6b3d5;
-
-        color: #332f28;
-        font-size: 0.9rem;
-        line-height: 3;
-        text-align: center;
-
-        font-weight: 350;
-        letter-spacing: 1.11px;
-        text-transform: uppercase;
-        text-align: center;
-      }
-
-      .circle:nth-child(2) {
-        background: #dad8ee;
-      }
-
-      .contacts {
-        position: relative;
-      }
-
-      .secondary-icon {
-        position: absolute;
-        top: -150px;
-        right: 50% + 100px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .secondary-icon > img {
-        background: #dae3cd;
-        border-radius: 50%;
-        width: 200px;
-      }
-
-      #contact > section {
-        margin: 0;
-      }
-
-      .green-divider {
-        height: calc(var(--buttonHeight) * 0.3);
-        margin-bottom: calc(var(--buttonSpacing) * 0.3);
-        width: 100%;
-        background: #bdcbaa;
-      }
-
-      .green-divider-2 {
-        background: #dae3cd00;
+        height: 20px;
+        backround: #b6b3d5;
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -326,20 +233,19 @@
   <body>
     <header>
       <img src="icon.webp" alt="Briony Rose Consulting Logo" />
-      <div>
-        <h3>Arts and events management</h3>
-        <h3>Creative problem-solving</h3>
-      </div>
+      <h3>
+        Arts and events management<br />
+        Creative problem-solving
+      </h3>
     </header>
-    <nav>
+    <nav class="links">
       <a href="#about">About Me</a>
       <a href="#capabilities">My Capabilities</a>
       <a href="#contact">Contact Me</a>
     </nav>
-    <section id="about" style="height: 40vh">
-      <img src="bri.webp" />
-      <div>
-        <h1>About Me</h1>
+    <section id="about">
+      <div id="about-text">
+        <h2>About Me</h2>
         <p>
           Growing up in the arts, my passion for arts management began at an early age. From creative entrepreneurial
           projects as early as early as 8 years old, to large-scale project delivery through LGAs and NFPs in my
@@ -351,72 +257,65 @@
           a variety of projects of different scales. I look forward to working with you on your next project!
         </p>
       </div>
+      <img id="about-img" src="bri.webp" alt="Briony Bray speaking" />
     </section>
-    <div class="dividers">
-      <div></div>
-      <div class="dividers-odd"></div>
-    </div>
-    <section id="capabilities" style="height: 40vh">
+    <hr />
+    <hr />
+    <section id="capabilities">
       <div>
-        <h1>My Capabilities</h1>
-        <h2>Event Coordination</h2>
+        <h2>My Capabilities</h2>
+        <h3>Event Coordination</h3>
         <ul>
           <li>Project Management for small to large scale public art projects</li>
           <li>Artist liaison throughout a project</li>
           <li>Working with all stakeholders from planning to delivery</li>
         </ul>
-        <h2>Public Art Consulting</h2>
+        <h3>Public Art Consulting</h3>
         <ul>
           <li>Delivering a diverse range of events within the community</li>
           <li>Working within a budget, and to specific project timelines</li>
           <li>Inclusive of, but not limited to, workshops, exhibitions, galas</li>
         </ul>
-        <h2>Art Valuations</h2>
+        <h3>Art Valuations</h3>
         <ul>
           <li>Valuing individual artworks or collections</li>
           <li>Inclusive of art valuations for Public Art collections in LGAs</li>
         </ul>
-        <h2>Curatorial Services</h2>
+        <h3>Curatorial Services</h3>
         <ul>
           <li>Selecting and curating artwork for independent and public art collections</li>
           <li>Art prizes, community exhibitions, interior design, and collections/acquisitions management</li>
         </ul>
       </div>
       <img
+        id="capabilities-img"
         alt="Creative Problem Solving; Strategic Planning and Implementation; Change Making; Engagement and Facilitation; Community Consultation; Project Managment; Partnerships"
         src="capabilities.webp"
       />
     </section>
-    <div class="green-divider green-divider-2"></div>
-    <div class="green-divider"></div>
-    <footer id="contact">
-      <section class="contacts">
-        <div class="secondary-icon">
-          <img src="icon.webp" />
+    <section id="contact">
+      <div class="contact-logo">
+        <img class="contact-logo-img" src="icon.webp" />
+        <div class="location">
+          <img class="location-pin" alt="Pin Icon" src="pin.webp" />
+          <span>Based in <strong>Geraldton, Western Australia</strong></span>
         </div>
+      </div>
+      <div id="contact-box">
+        <address>
+          <a href="mailto://info@brionyroseconsulting.au">info@brionyroseconsulting.au</a>
+          <br />
+          <a href="tel://+61404614965">0404 614 965</a>
+        </address>
 
-        <div class="main-contacts">
-          <address>
-            <a href="mailto://info@brionyroseconsulting.au">info@brionyroseconsulting.au</a>
-            <br />
-            <a href="tel://+61404614965">0404 614 965</a>
-          </address>
-        </div>
-
-        <div class="circles">
-          <a href="https://www.instagram.com/brionyroseconsulting" class="circle">Previous Work</a>
-          <a href="https://www.linkedin.com/in/briony-bray-3128881a3" class="circle">Find me on LinkedIn</a>
-          <a
-            href="https://docs.google.com/document/export?format=pdf&id=1-_XDx5oeUpPeWGOmBFAoJoliR_lniNm5ePSFBwElWcE"
-            class="circle"
+        <div class="links">
+          <a href="https://www.instagram.com/brionyroseconsulting">Previous Work</a>
+          <a href="https://www.linkedin.com/in/briony-bray-3128881a3">Connect on LinkedIn</a>
+          <a href="https://docs.google.com/document/export?format=pdf&id=1-_XDx5oeUpPeWGOmBFAoJoliR_lniNm5ePSFBwElWcE"
             >Current Resume</a
           >
         </div>
-      </section>
-      <div class="locations">
-        <img alt="Pin Icon" src="pin.webp" />
-        <span>Based in <strong>Geraldton, Western Australia</strong></span>
       </div>
-    </footer>
+    </section>
   </body>
 </html>
